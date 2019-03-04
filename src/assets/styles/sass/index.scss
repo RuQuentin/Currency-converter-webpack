@@ -1,6 +1,7 @@
 
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import '../stylesheets/bootstrap.min.css';
 
 
 html { height: 100%; }
@@ -8,4 +9,8 @@ body {
   min-height: 100%;
   position: relative;
   padding-bottom: 60px;
+}
+
+.container {
+  padding: 40px 0px;
 }

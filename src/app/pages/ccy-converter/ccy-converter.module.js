@@ -1,21 +1,10 @@
 'use strict';
 
-import MainComponent from './main.component';
+import ccyConverterController from './ccy-converter.controller';
+import './ccy-converter.scss';
 
-const mainPageModule = angular.module('main-module', [
-    'ui.router'
-])
-    .config(($stateProvider, $urlRouterProvider) => {
-        'ngInject';
+const ccyConverterModule = angular.module('ccyConverterModule', []);
 
-        $urlRouterProvider.otherwise('/');
+ccyConverterModule.controller('ccyConverterController', ccyConverterController);
 
-        $stateProvider
-            .state('main', {
-                url: '/',
-                component: 'main'
-            });
-    })
-    .component('main', new MainComponent());
-
-// export default mainPageModule;
+export default ccyConverterModule;

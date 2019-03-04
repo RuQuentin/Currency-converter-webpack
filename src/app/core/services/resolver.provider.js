@@ -5,6 +5,7 @@ export default function (app) {
 
     function resolverProvider () {
         this.asyncPagePrealoading = asyncPagePrealoading;
+        this.ccyConverterPrealoading = ccyConverterPrealoading;
         this.$get = function() { return this; };
     }
 
@@ -13,12 +14,27 @@ export default function (app) {
             "ngInject";
 
             const deferred = $q.defer();
-            require.ensure([], (require) => {
+            require.ensure([], require => {
                 const asyncModule = require('../../pages/async-page-example/async.module');
                 $ocLazyLoad.load({
                     name: asyncModule.default.name,
                 });
                 deferred.resolve(asyncModule.default.controller);
+            });
+            return deferred.promise;
+        }
+
+    
+        function ccyConverterPrealoading ($q, $ocLazyLoad) {
+            "ngInject";
+
+            const deferred = $q.defer();
+            require.ensure([], require => {
+                const ccyConverterModule = require('../../pages/ccy-converter/ccy-converter.module');
+                $ocLazyLoad.load({
+                    name: ccyConverterModule.default.name,
+                });
+                deferred.resolve(ccyConverterModule.default.controller);
             });
             return deferred.promise;
         }
