@@ -14,3 +14,16 @@ body {
 .container {
   padding: 40px 0px;
 }
+
+.cover {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  top: 0;
+  left: 0;
+}
