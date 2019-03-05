@@ -6,6 +6,7 @@ export default function (app) {
     function resolverProvider () {
         this.asyncPagePrealoading = asyncPagePrealoading;
         this.ccyConverterPrealoading = ccyConverterPrealoading;
+        this.ccyConverterPriceUpdater = ccyConverterPriceUpdater;
         this.$get = function() { return this; };
     }
 
@@ -37,6 +38,13 @@ export default function (app) {
                 deferred.resolve(ccyConverterModule.default.controller);
             });
             return deferred.promise;
+        }
+
+    
+        function ccyConverterPriceUpdater (currencyService) {
+            "ngInject";
+
+            return currencyService.updatePrices();
         }
     
 

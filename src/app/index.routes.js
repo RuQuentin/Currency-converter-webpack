@@ -9,7 +9,6 @@ import ccyConverterTpl from '!!file-loader?name=templates/[name].[ext]!./pages/c
 function routeConfig($urlRouterProvider, $stateProvider, resolverProvider) {
   'ngInject';
 
-
     $stateProvider
         .state('async', {
           url: '/async',
@@ -27,8 +26,10 @@ function routeConfig($urlRouterProvider, $stateProvider, resolverProvider) {
           controller: 'ccyConverterController',
           controllerAs: 'cc',
           resolve: {
-            asyncPreloading: resolverProvider.ccyConverterPrealoading
-          }
+            ccyConverterPreloading: resolverProvider.ccyConverterPrealoading,
+
+            resolvedValue: resolverProvider.ccyConverterPriceUpdater
+            }
         });
 
 

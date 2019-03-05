@@ -1,7 +1,7 @@
 /*global NODE_ENV*/
 'use strict';
 
-function config($logProvider, $compileProvider) {
+function config($logProvider, $compileProvider, currencyServiceProvider) {
 	'ngInject';
 
     $logProvider.debugEnabled(true);
@@ -11,6 +11,8 @@ function config($logProvider, $compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }
 
+
+    currencyServiceProvider.setAPI('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
   
 }
 
